@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{% url 'shorten_url' %}">
+        {% csrf_token %}
+        <label for="long_url">Enter a URL to shorten:</label><br>
+        <input type="url" id="long_url" name="long_url" required><br><br>
+        <input type="submit" value="Shorten URL">
+    </form>
+</body>
+</html>

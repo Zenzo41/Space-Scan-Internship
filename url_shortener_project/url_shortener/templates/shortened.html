@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shortened URL</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <p>Your URL has been shortened:</p>
+    <p>Original URL: <a href="{{ long_url }}">{{ long_url }}</a></p>
+    <p>Shortened URL: <a href="{% url 'redirect_to_long_url' short_url=short_url %}">{{ request.build_absolute_uri|safe }}</a></p>
+    <p>Feel free to share the shortened URL!</p>
+    <p><a href="{% url 'shorten_url' %}">Shorten Another URL</a></p>
+</body>
+</html>
